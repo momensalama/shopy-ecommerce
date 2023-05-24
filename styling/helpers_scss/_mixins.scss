@@ -1,0 +1,29 @@
+@mixin popups {
+  padding: 0.25rem 1rem;
+  border: 1px solid #e0e0e0;
+  transition: var(--main-transition);
+  visibility: hidden;
+  opacity: 0;
+  z-index: 14;
+  li {
+    transition: var(--main-transition);
+    cursor: pointer;
+    &:hover {
+      background-color: var(--back-color);
+      a {
+        color: var(--main-color);
+      }
+    }
+  }
+}
+
+// Create Grid System
+@mixin grid-system {
+  $grid_cols: 15;
+
+  @for $i from 1 through $grid_cols {
+    .col-#{$i} {
+      width: percentage($i / $grid_cols);
+    }
+  }
+}

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - shofy</title>
+    <!-- css files -->
+    <link rel="stylesheet" href="styling/bootstrap.min.css" />
+    <link rel="stylesheet" href="styling/all.min.css" />
+    <link rel="stylesheet" href="styling/style.css" />
+    <link rel="shortcut icon" href="./imgs/logo-icon.svg" type="image/x-icon" />
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- overlay -->
+    <span class="overlay"></span>
+    <!-- start header -->
+    <header class="p-3">
+      <div class="container">
+        <nav class="d-flex align-items-center justify-content-between">
+          <a href="index.html">
+            <img src="./imgs/logo.svg" alt="logo" />
+          </a>
+          <div class="w-75 d-flex align-items-center">
+            <form class="w-100 ms-2 me-2 d-none d-lg-block position-relative">
+              <div
+                class="search w-100 d-flex justify-content-flex-start align-item-center"
+              >
+                <input
+                  class="rounded-start p-2 ps-3 flex-grow-1"
+                  type="search"
+                  placeholder="Search"
+                />
+                <i class="rounded-end fa-solid fa-magnifying-glass"></i>
+              </div>
+              <!-- products from search -->
+              <div
+                class="searched-products position-absolute z-3 p-2 ps-2 pe-0 rounded w-100"
+              >
+                <ul></ul>
+              </div>
+            </form>
+            <div class="user-info d-flex ms-2 me-2">
+              <a href="account/account.html">
+                <img src="./imgs/user-icon.svg" alt="user-icon" />
+              </a>
+              <div class="cart ms-2 position-relative">
+                <img src="./imgs/cart.svg" alt="cart" />
+                <span class="rounded-circle items-count">0</span>
+              </div>
+            </div>
+            <div class="burger-icon">
+              <i
+                class="fa-solid fa-bars burger d-block d-lg-none ms-5 p-2 rounded"
+              ></i>
+            </div>
+          </div>
+        </nav>
+        <div
+          class="nav-content h-100 pt-3 pb-3 ps-2 pe-2 top-0 start-0 bg-white"
+        >
+          <div
+            class="logo-content d-lg-none d-xl-none d-xxl-none d-md-block d-sm-block"
+          >
+            <div class="logo d-flex justify-content-between align-items-center">
+              <a href="index.html">
+                <img src="./imgs/logo.svg" alt="logo" />
+              </a>
+              <!-- close slide content icon -->
+              <div class="close">
+                <i class="fa-solid fa-xmark"></i>
+              </div>
+            </div>
+          </div>
+          <ul class="navs d-flex align-items-center mt-3">
+            <li class="all pe-3 position-relative">
+              <a
+                href="index.html"
+                class="p-2 rounded d-flex align-item-center justify-content-center"
+              >
+                <img src="./imgs/grid.svg" alt="grid" class="me-1" />
+                All Departments
+              </a>
+              <!-- <ul
+                class="popup d-none d-lg-block position-absolute rounded bg-white"
+              >
+                <li class="p-1 ps-2 rounded">
+                  <a href="#">smartphones</a>
+                </li>
+                <li class="p-1 ps-2 rounded">
+                  <a href="#">laptops</a>
+                </li>
+                <li class="p-1 ps-2 rounded">
+                  <a href="#">fragrances</a>
+                </li>
+                <li class="p-1 ps-2 rounded">
+                  <a href="#">skincare</a>
+                </li>
+                <li class="p-1 ps-2 rounded">
+                  <a href="#">groceries</a>
+                </li>
+                <li class="p-1 ps-2 rounded">
+                  <a href="#">home-decoration</a>
+                </li>
+              </ul> -->
+            </li>
+            <li class="pe-3 ps-3">
+              <a href="index.html">Home</a>
+            </li>
+            <li class="pe-3 ps-3">
+              <a href="shop/shop.html">Shop</a>
+            </li>
+            <li class="pe-3 ps-3">
+              <a href="contact/contact.html">Contact</a>
+            </li>
+            <li class="pe-3 ps-3 position-relative">
+              <a href="account/account.html">Account</a>
+            </li>
+          </ul>
+        </div>
+        <!-- cart -->
+        <div class="cart-content position-fixed bg-white h-100 top-0 end-0">
+          <div class="close-cart text-end pe-1">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+          <div class="cart-products d-flex flex-column h-100">
+            <h5 class="cart-title fw-bold p-3 pt-1 pb-4 m-0">
+              Your cart (<span>0</span> item)
+            </h5>
+            <div
+              class="products-container__cart ps-3 pe-3 overflow-y-auto flex-grow-1"
+            ></div>
+            <div
+              class="total-price_container p-1 pt-4 pb-4 d-flex align-items-center justify-content-between"
+            >
+              <div class="total fw-bold">Subtotal</div>
+              <div class="total-price fw-semibold">$0</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- End header -->
+
+    <!-- Start Landing -->
+    <div class="container">
+      <section class="landing rounded mt-4 position-relative">
+        <div class="content ms-3">
+          <h6>Get 35% off new tablet</h6>
+          <h1 class="fw-bold mt-3 mb-4">
+            Best tablet <br />
+            smart pad
+          </h1>
+          <a href="shop/shop.html" class="rounded">Show Now -></a>
+        </div>
+      </section>
+    </div>
+    <!-- End Landing -->
+
+    <!-- Start categories -->
+    <!-- <section class="categories pt-5">
+      <div class="container">
+        <h4 class="fw-bold">Featured Categories</h4>
+        <div class="category-container pt-4 pb-4 d-flex gap-3 text-center">
+          <a href="#" class="category p-4 rounded">
+            <img src="./imgs/elec-4.png" alt="cate1" />
+            <h6 class="mt-3 text-center">smartphones</h6>
+          </a>
+          <a href="#" class="category p-4 rounded">
+            <img src="./imgs/elec-6.png" alt="cate2" />
+            <h6 class="mt-3 text-center">laptops</h6>
+          </a>
+          <a href="#" class="category p-4 rounded">
+            <img src="./imgs/perfume.png" alt="cate3" />
+            <h6 class="mt-3 text-center">fragrances</h6>
+          </a>
+          <a href="#" class="category p-4 rounded">
+            <img src="./imgs/moisturizer.png" alt="cate4" />
+            <h6 class="mt-3 text-center">skincare</h6>
+          </a>
+          <a href="#" class="category p-4 rounded">
+            <img src="./imgs/shopping-bag.png" alt="cate5" />
+            <h6 class="mt-3 text-center">groceries</h6>
+          </a>
+          <a href="#" class="category p-4 rounded">
+            <img src="./imgs/shelf.png" alt="cate6" />
+            <h6 class="mt-3 text-center">home-decoration</h6>
+          </a>
+        </div>
+      </div>
+    </section> -->
+    <!-- End categories -->
+
+    <!-- Start Products -->
+    <section class="products">
+      <div class="container">
+        <h4 class="fw-bold">Popular Products</h4>
+        <div class="previews">
+          <!-- <div
+            class="preview-container active bg-white position-fixed top-50 start-50 rounded"
+          >
+            <div
+              class="close-preview text-end me-1 me-lg-2 me-xl-2 mt-0 mt-lg-1 mt-xl-1 position-absolute end-0"
+            >
+              <i class="fa-solid fa-xmark text-end"></i>
+            </div>
+            <div
+              class="product-preview p-3 d-flex flex-wrap align-items-center justify-content-between"
+            >
+              <div
+                class="image-preview text-center mb-4 mb-lg-0 mb-xl-0 me-0 me-lg-3 me-xl-3 overflow-hidden"
+              >
+                <div class="image-showcase d-flex m-auto">
+                  <img class="rounded" src="./imgs/1.jpg" alt="" />
+                  <img class="rounded" src="./imgs/3.jpg" alt="" />
+                  <img class="rounded" src="./imgs/4.jpg" alt="" />
+                </div>
+                <div class="img-select d-flex align-items-center mt-1">
+                  <div class="img active">
+                    <a href="#" data-id="1">
+                      <img src="./imgs/1.jpg" alt="" />
+                    </a>
+                  </div>
+                  <div class="img">
+                    <a href="#" data-id="2">
+                      <img src="./imgs/3.jpg" alt="" />
+                    </a>
+                  </div>
+                  <div class="img">
+                    <a href="#" data-id="3">
+                      <img src="./imgs/4.jpg" alt="" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="preview-info">
+                <div
+                  class="heading d-flex justify-content-between align-items-center mb-2"
+                >
+                  <h1 class="m-0">iPhone 9</h1>
+                  <div class="rate d-flex align-items-center">
+                    <span class="me-1">5.6</span>
+                    <i class="fa-solid fa-star"></i>
+                  </div>
+                </div>
+                <p>
+                  An apple mobile which is Lorem ipsum dolor sit amet
+                  consectetur adipisicing elit. Quos aut impedit id error quidem
+                  magni laborum voluptatum repellendus qui iure explicabo ullam
+                  assumenda modi corporis, in, natus numquam nemo iste. nothing
+                  like apple
+                </p>
+                <div class="price mb-3">
+                  <span class="fw-medium">$878</span>
+                </div>
+                <a class="add-to__cart p-2 fw-medium rounded">+ dd to cart</a>
+              </div>
+            </div>
+          </div> -->
+        </div>
+
+        <div class="products-container d-grid mt-5 gap-3"></div>
+      </div>
+    </section>
+    <!-- End Products -->
+
+    <!-- start footer -->
+    <footer class="mt-5">
+      <div class="container">
+        <div class="row pb-4">
+          <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+            <h3 class="fs-5">Categories</h3>
+            <ul>
+              <li class="mb-2">
+                <a href="#" class="fw-medium">smartphones</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="fw-medium">laptops</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="fw-medium">fragrances</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="fw-medium">skincare</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="fw-medium">groceries</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="fw-medium">home-decoration</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-4 col-md-6 col-12">
+            <h3 class="fs-5">Become a Shopper</h3>
+            <ul>
+              <li class="mb-2">
+                <a href="shop/shop.html" class="fw-medium">Shop</a>
+              </li>
+              <li class="mb-2">
+                <a href="contact/contact.html" class="fw-medium">contact</a>
+              </li>
+              <li class="mb-2">
+                <a href="account/account.html" class="fw-medium">Account</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="payments pt-4 pb-4 d-flex justify-content-between align-items-center flex-wrap"
+        >
+          <div
+            class="payments-partners d-flex justify-content-between align-items-center mb-2 mb-0"
+          >
+            <span>Payment Partners</span>
+            <div class="imgs ms-3">
+              <img class="img-fluid" src="./imgs/amazon.svg" alt="amazon" />
+              <img class="img-fluid" src="./imgs/paypal.svg" alt="paypal" />
+              <img class="img-fluid" src="./imgs/visa.svg" alt="visa" />
+              <img
+                class="img-fluid"
+                src="./imgs/mastercard.svg"
+                alt="mastercard"
+              />
+            </div>
+          </div>
+          <div
+            class="download d-flex justify-content-between align-items-center flex-wrap"
+          >
+            <span>Get deliveries with shopy</span>
+            <div class="stores ms-0 ms-md-3 ms-lg-3 mt-4 mt-md-0 mt-lg-0">
+              <img
+                class="img-fluid mb-1 mb-md-0 mb-lg-0 mb-xl-0"
+                src="./imgs/apple-store.svg"
+                alt="apple-store"
+              />
+              <img
+                class="img-fluid"
+                src="./imgs/google-play.svg"
+                alt="google-play"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="copyrights d-flex justify-content-between align-items-center flex-wrap mt-4"
+        >
+          <p>
+            Copyright 2023 &copy; shopy website. All rights reserved. Powered by
+            <span>Momen salama</span>.
+          </p>
+          <div class="social d-flex justify-content-between align-items-center">
+            <span>Follow us on</span>
+            <div class="social-icons ms-3">
+              <i class="fa-brands fa-facebook me-1"></i>
+              <i class="fa-brands fa-twitter me-1"></i>
+              <i class="fa-brands fa-instagram"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- end footer -->
+
+    <!-- js files -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/all.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
