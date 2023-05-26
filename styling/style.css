@@ -129,6 +129,11 @@ header nav form input {
   width: 85%;
   border: 1px solid #e0e0e0;
   caret-color: var(--main-color);
+  /* remove "x" icon from input field */
+}
+header nav form input::-webkit-search-cancel-button, header nav form input::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
 }
 header nav form input:focus {
   outline: none;
@@ -390,12 +395,14 @@ header .cart-content .cart-products .total-price_container {
     width: 100%;
   }
 }
+@media (max-width: 768px) {
+  .products .preview-container .image-preview {
+    height: 310px;
+  }
+}
 .products .preview-container .image-preview .image-showcase {
   max-width: 400px;
   transition: all 0.4s ease;
-}
-.products .preview-container .image-preview .image-showcase img {
-  min-width: 400px;
 }
 .products .preview-container .image-preview .img-select .img {
   border: 2px solid white;

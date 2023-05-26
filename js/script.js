@@ -20,10 +20,14 @@ const ProductContainer = document.querySelector(
   ".products .products-container"
 );
 const searchInput = document.querySelector("header form input");
-const searchedProdutsContainer = document.querySelector(
-  "header form .searched-products ul"
+
+const searchedProductsContainer = document.querySelector(
+  ".searched-products ul"
 );
+const searchForm = document.querySelector("header form");
+
 const PreviewContainer = document.querySelector(".products .previews");
+
 const PreviewProducts = document.querySelectorAll(
   ".products .preview-container"
 );
@@ -133,7 +137,7 @@ function displayProducts(products) {
     <a
       onclick="addToCart(${product.id})"
       class="add-to__cart p-2 fw-medium rounded"
-      >+ dd to cart</a
+      >+ add to cart</a
     >
   </div>
 `;
@@ -256,7 +260,7 @@ function changeNumOfUnits(action, id) {
   updateCart();
 }
 
-async function fetchDataSearched(name) {
+async function fetchProductsByName(name) {
   try {
     const response = await fetch(
       `https://dummyjson.com/products/search?q=${name}`
@@ -268,27 +272,44 @@ async function fetchDataSearched(name) {
   }
 }
 
-async function findMatchesProdducts() {
-  const products = await fetchDataSearched(searchInput.value);
-  if (searchInput.value == "") {
-    searchedProdutsContainer.innerHTML = "";
+async function displayMatchingProducts(searchValue) {
+  const products = await fetchProductsByName(searchValue);
+  if (searchValue === "") {
+    searchedProductsContainer.innerHTML = "";
   } else {
-    products.forEach((product) => {
-      let html = `
-      <li class="d-flex align-items-center p-2 rounded">
-        <div class="product-search__image me-3">
-          <img class="rounded" src="${product.images[0]}" alt="${product.title}" />
-        </div>
-        <h6 class="name">${product.title}</h6>
-      </li>
-      `;
-      searchedProdutsContainer.insertAdjacentHTML("beforeend", html);
-    });
+    searchedProductsContainer.innerHTML = products
+      .map(
+        (product) => `
+        <li class="d-flex align-items-center p-2 rounded">
+          <div class="product-search__image me-3">
+            <img class="rounded" src="${product.images[0]}" alt="${product.title}" />
+          </div>
+          <h6 class="name">${product.title}</h6>
+        </li>`
+      )
+      .join("");
   }
 }
 
-searchInput.addEventListener("change", findMatchesProdducts);
-searchInput.addEventListener("keyup", findMatchesProdducts);
+function handleSearchFormSubmit(event) {
+  event.preventDefault();
+  displayMatchingProducts(searchInput.value);
+  searchInput.blur();
+}
+
+function handleSearchInputChange() {
+  displayMatchingProducts(searchInput.value);
+}
+
+function initializeSearch() {
+  searchForm.addEventListener("submit", handleSearchFormSubmit);
+  searchInput.addEventListener("change", () => {
+    searchedProductsContainer.innerHTML = "";
+  });
+  searchInput.addEventListener("keyup", handleSearchInputChange);
+}
+
+initializeSearch();
 
 function displayPreviews(previews) {
   previews.forEach((preview) => {
@@ -303,8 +324,8 @@ function displayPreviews(previews) {
       <div
         class="image-preview text-center mb-4 mb-lg-0 mb-xl-0 me-0 me-lg-3 me-xl-3 overflow-hidden"
       >
-        <div class="image-showcase d-flex m-auto">
-          <img class="rounded" src="${preview.images[0]}" alt="" />
+        <div class="image-showcase h-100 d-flex justify-content-center m-auto">
+          <img class="rounded img-fluid" src="${preview.images[0]}" alt="" />
         </div>
       </div>
       <div class="preview-info">
@@ -321,7 +342,7 @@ function displayPreviews(previews) {
         <div class="price mb-3">
           <span class="fw-medium">$${preview.price}</span>
         </div>
-        <a onclick="addToCart(${preview.id})" class="add-to__cart p-2 fw-medium rounded">+ dd to cart</a>
+        <a onclick="addToCart(${preview.id})" class="add-to__cart p-2 fw-medium rounded">+ add to cart</a>
       </div>
     </div>
   </div>
